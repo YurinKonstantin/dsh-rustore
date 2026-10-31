@@ -1,0 +1,57 @@
+{
+  "name": "dsh-rustore",
+  "version": "0.1.0",
+  "description": "RuStore Publishing API for DeepSeek Harness: draft, upload, moderation and publishing tools, a standalone MCP server and the rustore skill.",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./mcp": "./mcp/server.mjs",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "lib/*.mjs",
+    "mcp/server.mjs",
+    "skills/rustore/SKILL.md",
+    "locale/*.json",
+    "icon.svg",
+    "scripts/market.mjs",
+    "docs/rustore-api-reference.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/",
+    "market": "node scripts/market.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "rustore",
+    "mcp",
+    "publishing",
+    "android"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YurinKonstantin/dsh-rustore.git"
+  },
+  "homepage": "https://github.com/YurinKonstantin/dsh-rustore#readme",
+  "bugs": {
+    "url": "https://github.com/YurinKonstantin/dsh-rustore/issues"
+  },
+  "author": "Konstantin Yurin",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "license": "MIT"
+}

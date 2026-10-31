@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "title": "RuStore",
+    "description": "通过 Publishing API 把 Android 应用发布到 RuStore：草稿版本、上传 AAB/APK、图标与截图、审核。"
+  },
+  "tools": {
+    "apps_list": "应用列表",
+    "app_versions": "应用版本",
+    "version_info": "版本信息",
+    "version_status": "版本状态",
+    "draft_create": "创建草稿版本",
+    "draft_update": "修改草稿",
+    "draft_delete": "删除草稿",
+    "upload_apk": "上传 APK",
+    "upload_aab": "上传 AAB",
+    "upload_icon": "上传图标",
+    "upload_screens": "上传截图",
+    "screens_list": "截图列表",
+    "screenshot_delete": "删除截图",
+    "publish_settings": "发布设置",
+    "send_to_moderation": "提交审核",
+    "manual_publish": "手动发布",
+    "version_archive": "归档版本",
+    "categories_list": "应用分类",
+    "app_tags": "应用标签",
+    "settings_get": "RuStore 设置",
+    "settings_set": "写入设置",
+    "auth_check": "检查授权"
+  }
+}

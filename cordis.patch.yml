@@ -1,0 +1,38 @@
+- insert:
+    - id: rustore
+      name: dsh-rustore
+      config:
+        # Токен доступа RuStore API (JWE). Обычно оставляют пустым: указанных ниже
+        # keyId и приватного ключа достаточно — токен выпускается на 900 секунд
+        # и обновляется автоматически.
+        token: ""
+        # ID ключа из RuStore Консоли → вкладка «Компания»/«Разработчик» → API RuStore.
+        keyId: ""
+        # Приватный ключ в Base64. Безопаснее держать его в Settings → credentials
+        # под именем из privateKeyRef, а это поле оставить пустым.
+        privateKey: ""
+        privateKeyRef: RUSTORE_PRIVATE_KEY
+        # Хост публикационного API. Для чтения при 404 автоматически пробуется
+        # зеркало из mirrorBase.
+        apiBase: https://public-api-m.rustore.ru
+        mirrorBase: https://public-api.rustore.ru
+        authUrl: https://public-api-m.rustore.ru/public/auth/
+        timeoutMs: 120000
+        # Пусто — %USERPROFILE%\.dsh\rustore.json (его пишет инструмент rustore_settings_set).
+        settingsFile: ""
+# Альтернатива: тот же API как MCP-сервер вместо встроенных инструментов.
+# Раскомментируйте блок и удалите строку плагина rustore выше, иначе инструменты
+# продублируются (rustore_* и mcp__rustore__*).
+#
+# - insert:
+#     - id: rustore-mcp
+#       name: '@deepseek-ai/dsh-mcp-client'
+#       config:
+#         serverName: rustore
+#         transport: stdio
+#         command: node
+#         args: ['C:/Users/yurin/OneDrive/Документы/deepseek-harness/default-workspace/plugins/dsh-rustore/mcp/server.mjs']
+#         env:
+#           RUSTORE_KEY_ID: ''
+#           RUSTORE_PRIVATE_KEY: ''
+#         failOnStartupError: true

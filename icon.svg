@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="RuStore">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7B3FE4"/>
+      <stop offset="1" stop-color="#43B0F1"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#g)"/>
+  <path d="M22 20h13a9 9 0 0 1 0 18h-3l9 12h-8l-8-12h-3v12h-7V20h7zm7 6h-1v6h1a4 4 0 0 0 0-8z" fill="#fff"/>
+  <circle cx="46" cy="24" r="3" fill="#fff" opacity="0.9"/>
+</svg>

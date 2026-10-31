@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "title": "RuStore",
+    "description": "Publish Android apps to RuStore through the Publishing API: draft version, AAB/APK upload, icon and screenshots, moderation."
+  },
+  "tools": {
+    "apps_list": "List applications",
+    "app_versions": "Application versions",
+    "version_info": "Version details",
+    "version_status": "Version status",
+    "draft_create": "Create draft version",
+    "draft_update": "Update draft",
+    "draft_delete": "Delete draft",
+    "upload_apk": "Upload APK",
+    "upload_aab": "Upload AAB",
+    "upload_icon": "Upload icon",
+    "upload_screens": "Upload screenshots",
+    "screens_list": "List screenshots",
+    "screenshot_delete": "Delete screenshot",
+    "publish_settings": "Publish settings",
+    "send_to_moderation": "Send for moderation",
+    "manual_publish": "Manual publish",
+    "version_archive": "Archive version",
+    "categories_list": "Application categories",
+    "app_tags": "Application tags",
+    "settings_get": "RuStore settings",
+    "settings_set": "Write settings",
+    "auth_check": "Check authorization"
+  }
+}

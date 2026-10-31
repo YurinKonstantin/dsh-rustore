@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "title": "RuStore",
+    "description": "Публикация приложений в RuStore через Publishing API: черновик версии, загрузка AAB/APK, иконки и скриншотов, модерация."
+  },
+  "tools": {
+    "apps_list": "Список приложений",
+    "app_versions": "Версии приложения",
+    "version_info": "Информация о версии",
+    "version_status": "Статус версии",
+    "draft_create": "Создать черновик версии",
+    "draft_update": "Изменить черновик",
+    "draft_delete": "Удалить черновик",
+    "upload_apk": "Загрузить APK",
+    "upload_aab": "Загрузить AAB",
+    "upload_icon": "Загрузить иконку",
+    "upload_screens": "Загрузить скриншоты",
+    "screens_list": "Список скриншотов",
+    "screenshot_delete": "Удалить скриншот",
+    "publish_settings": "Настройки публикации",
+    "send_to_moderation": "Отправить на модерацию",
+    "manual_publish": "Ручная публикация",
+    "version_archive": "Архивировать версию",
+    "categories_list": "Категории приложений",
+    "app_tags": "Теги приложений",
+    "settings_get": "Настройки RuStore",
+    "settings_set": "Записать настройки",
+    "auth_check": "Проверить авторизацию"
+  }
+}
