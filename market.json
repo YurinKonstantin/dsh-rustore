@@ -1,0 +1,82 @@
+{
+  "format": 1,
+  "title": {
+    "en": "RuStore plugins",
+    "ru": "Плагины RuStore"
+  },
+  "description": {
+    "en": "DeepSeek Harness plugins published by Konstantin Yurin.",
+    "ru": "Плагины DeepSeek Harness от Константина Юрина."
+  },
+  "metadata": {
+    "categories": {
+      "publishing": {
+        "title": {
+          "en": "Publishing",
+          "ru": "Публикация"
+        }
+      }
+    },
+    "labels": {
+      "rustore": {
+        "title": {
+          "en": "RuStore",
+          "ru": "RuStore"
+        }
+      },
+      "mcp": {
+        "title": {
+          "en": "MCP server",
+          "ru": "MCP-сервер"
+        }
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-rustore",
+      "title": {
+        "en": "RuStore",
+        "ru": "RuStore"
+      },
+      "description": {
+        "en": "Publish Android apps to RuStore: draft version, AAB/APK upload, icon and screenshots, moderation, manual publishing, plus the rustore skill and a standalone MCP server.",
+        "ru": "Публикация Android-приложений в RuStore: черновик версии, загрузка AAB/APK, иконки и скриншотов, модерация, ручная публикация, плюс навык rustore и отдельный MCP-сервер."
+      },
+      "icon": "https://raw.githubusercontent.com/YurinKonstantin/dsh-rustore/25595822af51ead323b6ff9e1f121086578165e6/icon.svg",
+      "homepage": "https://github.com/YurinKonstantin/dsh-rustore#readme",
+      "repository": {
+        "url": "https://github.com/YurinKonstantin/dsh-rustore"
+      },
+      "metadata": {
+        "category": "publishing",
+        "keywords": [
+          "rustore",
+          "android",
+          "publishing",
+          "aab",
+          "apk",
+          "mcp"
+        ],
+        "labels": [
+          "rustore",
+          "mcp"
+        ]
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1793467975,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/YurinKonstantin/dsh-rustore",
+            "commit": "25595822af51ead323b6ff9e1f121086578165e6"
+          },
+          "engines": {
+            "dsh": ">=0.2.0"
+          }
+        }
+      ]
+    }
+  ]
+}

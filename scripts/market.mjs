@@ -13,8 +13,36 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
 const repo = 'https://github.com/YurinKonstantin/dsh-rustore';
-const commit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
+
+/**
+ * Коммит, на который ссылается индекс. `MARKET_COMMIT` позволяет задать его
+ * явно — в средах, где вызов git из Node запрещён (песочница, CI без git).
+ *
+ * @returns {string} 40-символьный SHA.
+ */
+function resolveCommit() {
+  const explicit = process.env.MARKET_COMMIT?.trim();
+  if (explicit) return explicit;
+  try {
+    return execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
+  } catch {
+    throw new Error('Не удалось определить коммит: задайте MARKET_COMMIT=<sha> (git rev-parse HEAD).');
+  }
+}
+
+const commit = resolveCommit();
 const raw = `https://raw.githubusercontent.com/YurinKonstantin/dsh-rustore/${commit}`;
+
+/**
+ * Время публикации версии в Unix-секундах (требование формата индекса).
+ * `MARKET_TIMESTAMP` позволяет зафиксировать значение при повторной сборке.
+ *
+ * @returns {number} целые секунды.
+ */
+function publishTimestamp() {
+  const explicit = Number(process.env.MARKET_TIMESTAMP);
+  return Number.isInteger(explicit) && explicit > 0 ? explicit : Math.floor(Date.now() / 1000);
+}
 
 const index = {
   format: 1,
@@ -41,6 +69,7 @@ const index = {
         ru: 'Публикация Android-приложений в RuStore: черновик версии, загрузка AAB/APK, иконки и скриншотов, модерация, ручная публикация, плюс навык rustore и отдельный MCP-сервер.',
       },
       icon: `${raw}/icon.svg`,
+      homepage: `${repo}#readme`,
       repository: { url: repo },
       metadata: {
         category: 'publishing',
@@ -50,6 +79,7 @@ const index = {
       versions: [
         {
           version: pkg.version,
+          publishTimestamp: publishTimestamp(),
           source: { type: 'git', url: repo, commit },
           engines: { dsh: '>=0.2.0' },
         },
