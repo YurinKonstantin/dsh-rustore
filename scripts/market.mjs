@@ -11,7 +11,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
+// PowerShell и часть редакторов сохраняют JSON с BOM — снимаем его, иначе
+// JSON.parse падает на первом символе.
+const pkgRaw = fs.readFileSync(path.join(root, 'package.json'), 'utf8').replace(/^\uFEFF/, '');
+const pkg = JSON.parse(pkgRaw);
 const repo = 'https://github.com/YurinKonstantin/dsh-rustore';
 
 /**

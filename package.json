@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "dsh-rustore",
   "version": "0.2.0",
   "description": "RuStore Publishing API for DeepSeek Harness: draft, upload, moderation and publishing tools, a standalone MCP server and the rustore skill.",
