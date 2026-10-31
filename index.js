@@ -11,13 +11,14 @@
 
 import { createToolContext } from './lib/context.mjs';
 import { asText } from './lib/errors.mjs';
+import { registerSettingsRoutes } from './lib/routes.mjs';
 import { TOOLS } from './lib/tools.mjs';
 
 /** Имя плагина для загрузчика. */
 export const name = 'rustore';
 
-/** Плагину нужен реестр инструментов. */
-export const inject = ['tools'];
+/** Плагину нужен реестр инструментов и HTTP-сервер для страницы настроек. */
+export const inject = ['tools', 'webServer'];
 
 /**
  * Достать приватный ключ RuStore из хранилища секретов DSH.
@@ -64,4 +65,17 @@ export function apply(ctx, config = {}) {
       },
     });
   }
+
+  // Страница настроек в Web UI (и в десктопном окне) общается с Host по HTTP.
+  // `webServer` объявлен в inject, поэтому сервис доступен уже на этом шаге.
+  const disposers = registerSettingsRoutes(ctx, context);
+  ctx.effect?.(() => () => {
+    for (const dispose of disposers) {
+      try {
+        dispose?.();
+      } catch {
+        // маршрут мог быть снят вместе с сервером
+      }
+    }
+  });
 }

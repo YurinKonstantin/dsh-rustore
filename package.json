@@ -1,17 +1,19 @@
-{
+﻿{
   "name": "dsh-rustore",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "RuStore Publishing API for DeepSeek Harness: draft, upload, moderation and publishing tools, a standalone MCP server and the rustore skill.",
   "type": "module",
   "main": "./index.js",
   "exports": {
     ".": "./index.js",
+    "./client": "./client.js",
     "./mcp": "./mcp/server.mjs",
     "./locale/*.json": "./locale/*.json",
     "./icon": "./icon.svg"
   },
   "files": [
     "index.js",
+    "client.js",
     "cordis.patch.yml",
     "lib/*.mjs",
     "mcp/server.mjs",
@@ -30,6 +32,13 @@
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ]
     }
   },
   "keywords": [
@@ -55,3 +64,4 @@
   },
   "license": "MIT"
 }
+

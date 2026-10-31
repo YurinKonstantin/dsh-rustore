@@ -1,4 +1,4 @@
-import assert from 'node:assert/strict';
+﻿import assert from 'node:assert/strict';
 import test from 'node:test';
 
 import { apply, inject, name } from '../index.js';
@@ -17,7 +17,7 @@ function fakeRegistry() {
 
 test('плагин объявляет имя и зависимость от реестра инструментов', () => {
   assert.equal(name, 'rustore');
-  assert.deepEqual(inject, ['tools']);
+  assert.deepEqual(inject, ['tools', 'webServer']);
 });
 
 test('apply регистрирует по инструменту на каждое определение, с префиксом rustore_', () => {
@@ -62,3 +62,4 @@ test('execute без настроек возвращает понятную ош
   const definition = tools.registered.find((item) => item.name === 'rustore_auth_check');
   await assert.rejects(() => definition.execute({}), /CONFIG|не настроен|ENOENT|not found|не найден/i);
 });
+
