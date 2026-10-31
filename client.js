@@ -314,7 +314,9 @@ window.__ModuleLoader__.load({
           slots.inject('plugins.bundle.config', () =>
             slots.register({ name: 'plugins.bundle.config', key: 'dsh-rustore' }, page),
           ),
-          slots.inject('plugins.item', () => slots.register({ name: 'plugins.item', key: 'dsh-rustore' }, page)),
+          slots.inject('plugins.item', () =>
+            slots.register({ name: 'plugins.item', id: 'dsh-rustore', key: 'dsh-rustore', label: () => 'RuStore' }, page),
+          ),
         ];
         return () => {
           for (const dispose of disposers) {
