@@ -43,7 +43,7 @@
         "en": "Publish Android apps to RuStore: draft version, AAB/APK upload, icon and screenshots, moderation, manual publishing, plus the rustore skill and a standalone MCP server.",
         "ru": "Публикация Android-приложений в RuStore: черновик версии, загрузка AAB/APK, иконки и скриншотов, модерация, ручная публикация, плюс навык rustore и отдельный MCP-сервер."
       },
-      "icon": "https://raw.githubusercontent.com/YurinKonstantin/dsh-rustore/79d6e8f8fcd227f2da9a00ce0d8cea4564a740df/icon.svg",
+      "icon": "https://raw.githubusercontent.com/YurinKonstantin/dsh-rustore/2a940ee6ea12ec87e018d09d597d695059a906f4/icon.svg",
       "homepage": "https://github.com/YurinKonstantin/dsh-rustore#readme",
       "repository": {
         "url": "https://github.com/YurinKonstantin/dsh-rustore"
@@ -65,12 +65,12 @@
       },
       "versions": [
         {
-          "version": "0.2.0",
-          "publishTimestamp": 1793474380,
+          "version": "0.3.0",
+          "publishTimestamp": 1793479838,
           "source": {
             "type": "git",
             "url": "https://github.com/YurinKonstantin/dsh-rustore",
-            "commit": "79d6e8f8fcd227f2da9a00ce0d8cea4564a740df"
+            "commit": "2a940ee6ea12ec87e018d09d597d695059a906f4"
           },
           "engines": {
             "dsh": ">=0.2.0"
