@@ -291,6 +291,11 @@ window.__ModuleLoader__.load({
     /**
      * Подключить страницу настроек.
      *
+     * Ключи слотов заданы так, как их вычисляет UI менеджера плагинов:
+     * конфигурация строки — `<пакет>#<id строки>`, конфигурация пакета — имя
+     * пакета. Слоты рендерят только зарегистрированный ключ, поэтому прежний
+     * `key: 'rustore'` страницу не показывал.
+     *
      * @param {object} ctx - контекст браузерного плагина.
      */
     function apply(ctx) {
@@ -301,7 +306,26 @@ window.__ModuleLoader__.load({
           ? 'RuStore: публикация Android-приложений через Publishing API. Откройте, чтобы задать keyId и приватный ключ.'
           : React.createElement(RuStoreSettings, null);
 
-      ctx.effect(() => slots.inject('plugins.row.config', () => slots.register({ name: 'plugins.row.config', key: 'rustore' }, page)));
+      ctx.effect(() => {
+        const disposers = [
+          slots.inject('plugins.row.config', () =>
+            slots.register({ name: 'plugins.row.config', key: 'dsh-rustore#rustore' }, page),
+          ),
+          slots.inject('plugins.bundle.config', () =>
+            slots.register({ name: 'plugins.bundle.config', key: 'dsh-rustore' }, page),
+          ),
+          slots.inject('plugins.item', () => slots.register({ name: 'plugins.item', key: 'dsh-rustore' }, page)),
+        ];
+        return () => {
+          for (const dispose of disposers) {
+            try {
+              dispose?.();
+            } catch {
+              // слот мог быть снят вместе с панелью
+            }
+          }
+        };
+      });
     }
 
     exports.apply = apply;
