@@ -12,11 +12,9 @@
         # под именем из privateKeyRef, а это поле оставить пустым.
         privateKey: ""
         privateKeyRef: RUSTORE_PRIVATE_KEY
-        # Хост публикационного API. Для чтения при 404 автоматически пробуется
-        # зеркало из mirrorBase.
-        apiBase: https://public-api-m.rustore.ru
-        mirrorBase: https://public-api.rustore.ru
-        authUrl: https://public-api-m.rustore.ru/public/auth/
+        # Адреса API по умолчанию берутся из кода (public-api.rustore.ru,
+        # зеркало public-api-m.rustore.ru). Переопределяйте apiBase/mirrorBase/
+        # authUrl, только если нужен другой хост.
         timeoutMs: 120000
         # Пусто — %USERPROFILE%\.dsh\rustore.json (его пишет инструмент rustore_settings_set).
         settingsFile: ""

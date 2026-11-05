@@ -1,5 +1,8 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
 import http from 'node:http';
+import os from 'node:os';
+import path from 'node:path';
 import test from 'node:test';
 
 import { ROUTE_PREFIX, registerSettingsRoutes } from '../lib/routes.mjs';
@@ -164,8 +167,14 @@ test('POST /check сообщает результат проверки и не �
 });
 
 test('контекст инструментов отдаёт файл настроек в описании для формы', async () => {
-  const context = createToolContext({ config: {}, env: {}, fetchImpl: async () => assert.fail('сеть не нужна') });
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'rustore-routes-'));
+  const context = createToolContext({
+    config: { settingsFile: path.join(dir, 'rustore.json') },
+    env: {},
+    fetchImpl: async () => assert.fail('сеть не нужна'),
+  });
   const described = await context.describe();
   assert.equal(typeof described.settingsPath, 'string');
   assert.equal(described.authMode, 'none');
+  await fs.rm(dir, { recursive: true, force: true });
 });

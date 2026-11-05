@@ -74,9 +74,9 @@ RuStore не выдаёт долгоживущий токен: JWE живёт **
     keyId: "354751"                 # ID ключа из консоли
     privateKey: ""                  # Base64; лучше держать в credentials, а не здесь
     privateKeyRef: RUSTORE_PRIVATE_KEY
-    apiBase: https://public-api-m.rustore.ru
-    mirrorBase: https://public-api.rustore.ru
-    authUrl: https://public-api-m.rustore.ru/public/auth/
+    apiBase: https://public-api.rustore.ru
+    mirrorBase: https://public-api-m.rustore.ru
+    authUrl: https://public-api.rustore.ru/public/auth/
     timeoutMs: 120000
     settingsFile: ""                # по умолчанию %USERPROFILE%\.dsh\rustore.json
 ```
@@ -162,7 +162,9 @@ node test/routes.test.mjs   # HTTP-маршруты страницы настр�
   разработчика, политика конфиденциальности, тестовые доступы и ТВ-иконка задаются в веб-консоли
   RuStore.
 - Документация RuStore разносит методы по двум хостам (`public-api.rustore.ru` и
-  `public-api-m.rustore.ru`); для чтения клиент автоматически пробует второй при 404.
+  `public-api-m.rustore.ru`); основной адрес — `public-api.rustore.ru`; при 404 для чтения и при ошибке установления
+  соединения (в части окружений `public-api-m` отдаёт неполную цепочку сертификата) клиент
+  автоматически повторяет запрос на зеркале.
 
 ## Лицензия
 

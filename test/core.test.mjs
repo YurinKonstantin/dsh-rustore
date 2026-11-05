@@ -98,7 +98,7 @@ test('resolveConfig: старшинство конфигурация → сек�
   assert.equal(resolved.privateKey, 'from-credential');
   assert.equal(resolved.apiBase, 'https://env.test');
   assert.equal(resolved.token, 'file-token');
-  assert.equal(resolved.authUrl, 'https://public-api-m.rustore.ru/public/auth/');
+  assert.equal(resolved.authUrl, 'https://public-api.rustore.ru/public/auth/');
   assert.equal(resolved.timeoutMs, 5000);
 });
 
